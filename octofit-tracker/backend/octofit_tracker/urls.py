@@ -15,10 +15,31 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import views
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
 from rest_framework.routers import DefaultRouter
+import os
+
+class APIRootView(views.APIView):
+    def get(self, request, format=None):
+        codespace_name = os.environ.get('CODESPACE_NAME')
+        if codespace_name:
+            base_url = f"https://{codespace_name}-8000.app.github.dev/api/"
+        else:
+            base_url = request.build_absolute_uri('/api/')
+        return Response({
+            'users': base_url + 'users/',
+            'teams': base_url + 'teams/',
+            'activities': base_url + 'activities/',
+            'workouts': base_url + 'workouts/',
+            'leaderboard': base_url + 'leaderboard/',
+        })
+
 from . import views
 
 router = DefaultRouter()
+router.root_view = APIRootView.as_view()
 router.register(r'users', views.UserViewSet)
 router.register(r'teams', views.TeamViewSet)
 router.register(r'activities', views.ActivityViewSet)
@@ -26,7 +47,8 @@ router.register(r'workouts', views.WorkoutViewSet)
 router.register(r'leaderboard', views.LeaderboardViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', APIRootView.as_view()),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
 ]
