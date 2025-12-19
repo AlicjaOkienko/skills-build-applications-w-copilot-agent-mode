@@ -1,0 +1,118 @@
+/* Custom styles for Octofit Tracker */
+
+body {
+  background-color: #f8f9fa;
+  color: #212529;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.table {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.table td {
+  border-color: #dee2e6;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.btn {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+h1 {
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.navbar {
+  background-color: #343a40 !important;
+  border-bottom: 2px solid #007bff;
+}
+
+.navbar-brand {
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-brand:hover {
+  color: #adb5bd !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff !important;
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: #007bff;
+}
+
+.card-text {
+  color: #6c757d;
+}
+
+/* Remove default CRA styles */
+.App {
+  text-align: left;
+}
+
+.App-logo {
+  display: none;
+}
+
+.App-header {
+  background-color: inherit;
+  min-height: auto;
+  display: block;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.App-link {
+  color: #007bff;
+}
